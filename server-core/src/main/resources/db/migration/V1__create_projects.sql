@@ -1,0 +1,7 @@
+CREATE TABLE projects (
+    id UUID PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    description TEXT,
+    owner_id UUID,
+    created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP
+);

@@ -1,0 +1,2 @@
+ALTER TABLE screens ALTER COLUMN image_url TYPE TEXT;
+ALTER TABLE screens ALTER COLUMN version_tag TYPE TEXT;

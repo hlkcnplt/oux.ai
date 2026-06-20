@@ -1,0 +1,11 @@
+CREATE TABLE screens (
+    id UUID PRIMARY KEY,
+    project_id UUID NOT NULL,
+    version_tag VARCHAR(255),
+    image_url TEXT NOT NULL,
+    canvas_x DOUBLE PRECISION NOT NULL,
+    canvas_y DOUBLE PRECISION NOT NULL,
+    canvas_scale DOUBLE PRECISION NOT NULL DEFAULT 1.0,
+    created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_screens_project FOREIGN KEY (project_id) REFERENCES projects(id) ON DELETE CASCADE
+);
