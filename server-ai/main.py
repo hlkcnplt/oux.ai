@@ -1,35 +1,19 @@
-from fastapi import FastAPI
-from pydantic import BaseModel, ConfigDict
-from typing import Optional
-import os
-from dotenv import load_dotenv
-
-load_dotenv()
+from fastapi import FastAPI, Request
+from fastapi.responses import JSONResponse
+from exceptions import ProviderException
+from routers.analyze import router as analyze_router
 
 app = FastAPI(title="oux.ai AI Bridge", version="1.0.0")
 
+@app.exception_handler(ProviderException)
+async def provider_exception_handler(request: Request, exc: ProviderException) -> JSONResponse:
+    return JSONResponse(
+        status_code=502,
+        content={"detail": exc.message},
+    )
 
-class AnalyzeRequest(BaseModel):
-    model_config = ConfigDict(str_strip_whitespace=True)
-
-    image_url: str
-    project_context: str
-    provider: str
-    api_key: str
-    local_endpoint: Optional[str] = None
-    model_name: Optional[str] = None
-
+app.include_router(analyze_router)
 
 @app.get("/health")
-async def health_check():
-    return {"status": "ok", "provider": os.getenv("AI_PROVIDER", "LOCAL")}
-
-
-@app.post("/analyze")
-async def analyze_screen(request: AnalyzeRequest):
-    return {"message": "Analysis started asynchronously.", "provider": request.provider}
-
-
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+async def health_check() -> dict[str, str]:
+    return {"status": "ok"}
