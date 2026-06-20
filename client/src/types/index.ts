@@ -1,7 +1,6 @@
-// Provider Enums/Unions
+
 export const AIProvider = {
   GEMINI: 'GEMINI',
-  OPENAI: 'OPENAI',
   LOCAL: 'LOCAL',
 } as const;
 
@@ -23,7 +22,7 @@ export interface ProviderActions {
 
 export type ProviderStore = ProviderState & ProviderActions;
 
-// Canvas Objects
+
 export interface Position {
   x: number;
   y: number;
@@ -43,6 +42,7 @@ export interface AnnotationResult {
 
 export interface ScreenNode {
   id: string;
+  dbId?: string;
   position: Position;
   size: Size;
   imageUrl: string;
@@ -52,11 +52,12 @@ export interface ScreenNode {
 
 export interface Project {
   id: string;
+  dbId?: string;
   name: string;
   screens: ScreenNode[];
 }
 
-// Global App UI State
+
 export type ActiveTool = 'select' | 'hand' | 'comment';
 
 export interface AppState {
@@ -73,7 +74,7 @@ export interface AppActions {
 
 export type AppStore = AppState & AppActions;
 
-// API Models
+
 export interface AnalysisRequest {
   screenId: string;
   provider: AIProvider;
@@ -84,8 +85,39 @@ export interface AnalysisRequest {
 }
 
 export interface AnalysisResult {
-  provider_used: string;
-  model_version: string;
+  reportId: string;
   annotations: AnnotationResult[];
-  raw_response: any;
+}
+
+export interface CreateProjectPayload {
+  name: string;
+  description: string;
+}
+
+export interface CreateScreenPayload {
+  projectId: string;
+  versionTag: string;
+  imageUrl: string;
+  canvasX: number;
+  canvasY: number;
+  canvasScale: number;
+}
+
+export interface BackendProject {
+  id: string;
+  name: string;
+  description: string;
+  createdAt: string;
+}
+
+export interface BackendScreen {
+  id: string;
+  projectId: string;
+  versionTag: string;
+  imageUrl: string;
+  canvasX: number;
+  canvasY: number;
+  canvasScale: number;
+  createdAt: string;
+  annotations: AnnotationResult[];
 }

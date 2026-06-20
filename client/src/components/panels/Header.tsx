@@ -34,7 +34,7 @@ export function Header() {
             onClick={() => {
                 const stage = useCanvasStore.getState().stageRef;
                 if (stage) {
-                    const dataURL = stage.toDataURL({ pixelRatio: 2 });
+                    const dataURL = (stage as any).toDataURL({ pixelRatio: 2 });
                     const link = document.createElement('a');
                     link.download = 'oux-ai-export.png';
                     link.href = dataURL;

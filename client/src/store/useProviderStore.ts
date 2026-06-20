@@ -6,7 +6,7 @@ export const useProviderStore = create<ProviderStore>((set) => ({
   provider: AIProvider.LOCAL,
   apiKey: '',
   localEndpoint: 'http://localhost:11434/v1',
-  modelName: 'qwen2.5-vl',
+  modelName: '',
   setProvider: (provider) => set({ provider }),
   setApiKey: (apiKey) => set({ apiKey }),
   setLocalEndpoint: (localEndpoint) => set({ localEndpoint }),

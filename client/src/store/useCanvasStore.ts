@@ -7,7 +7,7 @@ interface CanvasState {
   stageScale: number;
   projects: Project[];
   activeProjectId: string;
-  stageRef: any | null;
+  stageRef: unknown | null;
 }
 
 interface CanvasActions {
@@ -16,9 +16,9 @@ interface CanvasActions {
   addScreen: (screen: ScreenNode) => void;
   updateScreenPosition: (id: string, pos: Position) => void;
   removeScreen: (id: string) => void;
-  setStageRef: (ref: any) => void;
+  setStageRef: (ref: unknown) => void;
   
-  // Project Actions
+
   addProject: (name: string) => void;
   deleteProject: (id: string) => void;
   renameProject: (id: string, name: string) => void;
