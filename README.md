@@ -4,7 +4,7 @@
 
 oux.ai is a powerful, open-source tool built to help designers and developers refine user interfaces. It provides a Figma-like infinite canvas where users can upload application screens, and it leverages AI to analyze these screens based on UX heuristics. 
 
-It supports various AI backends to fit your workflow and privacy needs: Cloud models like Google Gemini or OpenAI GPT-4o, or Local models using Ollama/LM Studio.
+It supports various AI backends to fit your workflow and privacy needs: Cloud models like Google Gemini, or Local models using Ollama/LM Studio.
 
 ## Architecture & Tech Stack
 

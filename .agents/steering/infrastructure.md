@@ -74,7 +74,7 @@ All environment variables are documented in `.env.example`. No service may read 
 | Variable | Description |
 |----------|-------------|
 | `POSTGRES_PASSWORD` | Strong password for production |
-| `AI_PROVIDER` | Default AI provider (LOCAL, OPENAI, GEMINI) |
+| `AI_PROVIDER` | Default AI provider (LOCAL, GEMINI) |
 | `VITE_API_BASE_URL` | Public domain URL (critical for production client build) |
 | `LOCAL_AI_ENDPOINT` | URL for Ollama/LM Studio if using LOCAL provider |
 

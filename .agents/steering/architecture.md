@@ -7,8 +7,8 @@ OpenDesign is a polyglot monorepo with three independently deployable services t
 ```
 ┌─────────────────────────────────────────────────────────┐
 │                      Browser Client                     │
-│              React 18 + Vite + Tailwind CSS             │
-│        Infinite Canvas (React-Konva) + Zustand          │
+│              React 19 + Vite 8 + Tailwind CSS           │
+│       Infinite Canvas (React-Konva 19) + Zustand 5      │
 └───────────────────────────┬─────────────────────────────┘
                             │ HTTPS REST
                             ▼
@@ -22,14 +22,14 @@ OpenDesign is a polyglot monorepo with three independently deployable services t
 ┌─────────────────────────────────────────────────────────┐
 │                      server-ai                          │
 │              Python 3.10 + FastAPI + Pydantic           │
-│         Adapter Pattern → Gemini / OpenAI / Local       │
+│         Adapter Pattern → Gemini / Local                │
 └─────────────────────────────────────────────────────────┘
                    │
         ┌──────────┴───────────┐
         ▼                      ▼
-  Cloud Providers        Local Providers
-  Gemini / OpenAI        Ollama / LM Studio
-  Anthropic              (OpenAI-compatible)
+   Cloud Providers        Local Providers
+   Gemini                 Ollama / LM Studio
+                          (OpenAI-compatible)
 ```
 
 ## API Key & Provider Flow
@@ -103,7 +103,7 @@ Screen
 AI_Report
   id            UUID PK
   screen_id     UUID FK → Screen
-  provider_name VARCHAR      -- e.g. "GEMINI", "OPENAI", "LOCAL"
+  provider_name VARCHAR      -- e.g. "GEMINI", "LOCAL"
   model_version VARCHAR      -- e.g. "gemini-1.5-pro"
   raw_response  JSONB
   created_at    TIMESTAMP
@@ -121,10 +121,10 @@ Annotation
 
 | Layer      | Technology          | Version  |
 |------------|---------------------|----------|
-| Frontend   | React               | 18.x     |
-| Frontend   | Vite                | 6.x      |
+| Frontend   | React               | 19.x     |
+| Frontend   | Vite                | 8.x      |
 | Frontend   | Tailwind CSS        | 4.x      |
-| Frontend   | React-Konva         | 9.x      |
+| Frontend   | React-Konva         | 19.x     |
 | Frontend   | Zustand             | 5.x      |
 | Backend    | Java                | 21       |
 | Backend    | Spring Boot         | 3.3.x    |

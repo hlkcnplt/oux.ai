@@ -7,7 +7,7 @@
 | Language      | Python 3.10+       | Type hints mandatory everywhere          |
 | Framework     | FastAPI 0.111.x    | Async-first, automatic OpenAPI docs      |
 | Validation    | Pydantic v2        | All request/response models must use it  |
-| AI SDK        | openai 1.x         | Used for OpenAI AND Gemini (via compat)  |
+| AI SDK        | google-genai       | Used for Gemini                        |
 | Env Config    | python-dotenv      | Dev defaults only, never used in prod    |
 | Testing       | Pytest             | With `respx` for mocking HTTP calls      |
 
@@ -23,7 +23,6 @@ server-ai/
 │   ├── __init__.py
 │   ├── base_provider.py     # Abstract base class
 │   ├── gemini_provider.py   # Gemini adapter
-│   ├── openai_provider.py   # OpenAI adapter
 │   └── local_provider.py    # Ollama / LM Studio adapter (OpenAI-compatible)
 ├── routers/
 │   └── analyze.py           # /analyze endpoint
@@ -65,8 +64,6 @@ def get_provider(provider: str) -> BaseAIProvider:
     match provider.upper():
         case "GEMINI":
             return GeminiProvider()
-        case "OPENAI":
-            return OpenAIProvider()
         case "LOCAL":
             return LocalProvider()
         case _:

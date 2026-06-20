@@ -113,7 +113,6 @@ cd server-core
 server-ai/tests/
 ├── test_analyze.py        # /analyze endpoint integration
 ├── test_gemini_provider.py
-├── test_openai_provider.py
 └── test_local_provider.py
 ```
 

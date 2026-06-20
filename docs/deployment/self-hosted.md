@@ -6,7 +6,7 @@ This guide is for developers and small teams who want to host oux.ai on their ow
 
 - [Docker](https://docs.docker.com/get-docker/) (v24+)
 - [Docker Compose](https://docs.docker.com/compose/install/) (v2+)
-- Access to an AI Vision model (OpenAI, Gemini, or a local provider like Ollama)
+- Access to an AI Vision model (Gemini, or a local provider like Ollama)
 
 ## Setup Process
 

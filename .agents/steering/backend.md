@@ -50,7 +50,7 @@ public record AnalysisResponse(
 ## Service Rules
 
 - All services must be defined as a `public interface` first, with the implementation class in `impl/`.
-- Services must be provider-blind. Business logic in `server-core` must not contain any string-matching of `"GEMINI"` or `"OPENAI"`. That logic belongs exclusively in `server-ai`.
+- Services must be provider-blind. Business logic in `server-core` must not contain any string-matching of `"GEMINI"` or `"LOCAL"`. That logic belongs exclusively in `server-ai`.
 - The service responsible for triggering analysis must delegate fully to the `AIBridgeClient` without interpreting the AI response.
 
 ## API Key Handling (Critical)

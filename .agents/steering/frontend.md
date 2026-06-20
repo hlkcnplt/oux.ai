@@ -4,10 +4,10 @@
 
 | Concern        | Library              | Notes                                   |
 |----------------|----------------------|-----------------------------------------|
-| Framework      | React 18             | Strict Mode enabled by default          |
-| Build Tool     | Vite 6               | TypeScript-first                        |
+| Framework      | React 19             | Strict Mode enabled by default          |
+| Build Tool     | Vite 8               | TypeScript-first                        |
 | Styling        | Tailwind CSS v4      | `@import "tailwindcss"` in `index.css`  |
-| Canvas         | React-Konva 9        | Konva.js for infinite canvas            |
+| Canvas         | React-Konva 19       | Konva.js for infinite canvas            |
 | State          | Zustand 5            | One store per domain slice              |
 | HTTP Client    | fetch / axios        | Abstracted behind custom hooks          |
 | Icons          | Lucide React         |                                         |
@@ -45,7 +45,7 @@ client/src/
 
 ```typescript
 interface ProviderState {
-  provider: 'GEMINI' | 'OPENAI' | 'LOCAL';
+  provider: 'GEMINI' | 'LOCAL';
   apiKey: string;
   localEndpoint: string;
   modelName: string;
@@ -76,7 +76,7 @@ interface ProviderState {
 
 ## AI Provider UI Requirements
 
-- The header or a persistent sidebar panel must always display the currently active AI provider (e.g. a badge showing `GEMINI`, `OPENAI`, or `LOCAL`).
+- The header or a persistent sidebar panel must always display the currently active AI provider (e.g. a badge showing `GEMINI` or `LOCAL`).
 - A settings panel (`ProviderSettings`) allows the user to:
   1. Select a provider from a dropdown.
   2. Input their API Key (masked input field, `type="password"`).
@@ -106,7 +106,7 @@ interface ProviderState {
 ```typescript
 interface AnalysisRequest {
   screenId: string;
-  provider: 'GEMINI' | 'OPENAI' | 'LOCAL';
+  provider: 'GEMINI' | 'LOCAL';
   apiKey: string;
   localEndpoint?: string;
   modelName?: string;

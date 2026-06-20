@@ -86,7 +86,7 @@ npm run dev
 
 oux.ai does not require any server-side API key configuration for provider selection. Providers are selected and keys are entered from the **Settings Panel** in the UI.
 
-### Cloud Providers (Gemini, OpenAI)
+### Cloud Providers (Gemini)
 
 1. Open the settings panel in the top-right of the application.
 2. Select your provider from the dropdown.

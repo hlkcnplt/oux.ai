@@ -15,7 +15,7 @@ The user selects the AI provider and enters their API key from the UI. The key t
 
 | Layer       | Technology                              |
 |-------------|-----------------------------------------|
-| Frontend    | React 18, Vite, Tailwind CSS v4, Zustand, React-Konva |
+| Frontend    | React 19, Vite 8, Tailwind CSS v4, Zustand 5, React-Konva 19 |
 | Backend     | Java 21, Spring Boot 3.3, PostgreSQL 15 |
 | AI Bridge   | Python 3.10, FastAPI, Pydantic v2       |
 | Deployment  | Docker Compose                          |
