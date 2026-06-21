@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Image as KonvaImage, Group, Rect, Text, Circle } from 'react-konva';
+import { Image as KonvaImage, Group, Rect, Text, Circle, Label, Tag } from 'react-konva';
 import { Html } from 'react-konva-utils';
 import { Trash2, Sparkles } from 'lucide-react';
 import useImage from 'use-image';
@@ -72,25 +72,25 @@ export function ScreenNodeComponent({ screen }: ScreenNodeProps) {
         return (
           <Group key={idx} x={ax} y={ay}>
             {/* Pulsing ring */}
-            <Circle radius={16} fill="rgba(163, 166, 255, 0.2)" stroke="#a3a6ff" strokeWidth={1.5} />
+            <Circle radius={16} fill="rgba(255, 255, 255, 0.2)" stroke="#ffffff" strokeWidth={1.5} />
             {/* Core dot */}
-            <Circle radius={4} fill="#a3a6ff" />
+            <Circle radius={4} fill="#ffffff" />
             
             {/* Text Balloon */}
-            <Group x={24} y={-16}>
-                <Rect 
-                    width={220} height={50} 
+            <Label x={24} y={-16}>
+                <Tag 
                     fill="rgba(19, 19, 20, 0.85)" 
                     cornerRadius={8} 
                     shadowColor="#000" shadowBlur={15} shadowOpacity={0.3} shadowOffsetY={5}
-                    stroke="rgba(163, 166, 255, 0.4)" strokeWidth={1}
+                    stroke="rgba(255, 255, 255, 0.4)" strokeWidth={1}
                 />
                 <Text 
-                    x={12} y={10} text={ann.issue} 
+                    text={ann.issue} 
                     fill="#e5e5e5" fontSize={12} width={196} 
                     fontFamily="Inter" lineHeight={1.4}
+                    padding={12}
                 />
-            </Group>
+            </Label>
           </Group>
         );
       })}
@@ -112,25 +112,14 @@ export function ScreenNodeComponent({ screen }: ScreenNodeProps) {
                 if (container) container.style.cursor = 'default';
             }}
         >
-            <Rect width={208} height={32} fill={isAnalyzing ? "#262627" : "#6063ee"} cornerRadius={16} />
+            <Rect width={208} height={32} fill={isAnalyzing ? "#262627" : "#ffffff"} cornerRadius={16} />
             
-            {/* Sparkle/Activity Icon drawn via Lucide React */}
-            <Group x={isAnalyzing ? 36 : 40} y={8}>
-                <Html divProps={{ style: { pointerEvents: 'none' } }}>
-                   <Sparkles 
-                     size={16} 
-                     color={isAnalyzing ? "#8a8a8e" : "#ffffff"} 
-                     strokeWidth={2.5} 
-                   />
-                </Html>
-            </Group>
-
             <Text 
                 text={isAnalyzing ? "Analyzing UX..." : "Analyze Screen"} 
-                fill={isAnalyzing ? "#8a8a8e" : "#ffffff"} 
-                x={isAnalyzing ? 56 : 60} y={0}
-                width={120} height={32} 
-                align="left" verticalAlign="middle" 
+                fill={isAnalyzing ? "#8a8a8e" : "#000000"} 
+                x={0} y={0}
+                width={208} height={32} 
+                align="center" verticalAlign="middle" 
                 fontFamily="Inter" fontSize={13} fontStyle="bold"
             />
         </Group>
