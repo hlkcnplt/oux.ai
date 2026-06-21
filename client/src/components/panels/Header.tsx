@@ -20,9 +20,11 @@ export function Header() {
         >
           <PanelLeft size={18} />
         </button>  
-        <div className="w-9 h-9 flex items-center justify-center rounded-xl btn-gradient shadow-lg cursor-pointer hover:brightness-110 transition-all text-white font-black text-xs tracking-tighter">
-          oux
-        </div>
+        <img 
+          src="/favicon.svg" 
+          alt="oux" 
+          className="w-9 h-9 rounded-xl shadow-lg cursor-pointer hover:brightness-110 transition-all bg-white p-1"
+        />
         <div className="glass-panel px-4 py-2 rounded-xl text-sm font-medium border border-[var(--color-outline-variant)]/20 shadow-sm cursor-pointer hover:bg-[var(--color-surface-container-high)]/60 transition-colors">
           {projects.find(p => p.id === activeProjectId)?.name || 'Untitled Design'}
         </div>
